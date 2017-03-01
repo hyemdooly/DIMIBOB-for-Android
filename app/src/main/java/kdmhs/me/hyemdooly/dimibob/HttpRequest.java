@@ -1,6 +1,10 @@
 package kdmhs.me.hyemdooly.dimibob;
 
+import android.util.Log;
+
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Map;
 
 import okhttp3.HttpUrl;
@@ -16,33 +20,42 @@ public class HttpRequest {
     OkHttpClient client = new OkHttpClient();
 
     String date;
-    String breakfast;
-    String lunch;
-    String dinner;
-    String snack;
 
     String run(String url) throws IOException{
 
         HttpUrl.Builder urlBuilder = HttpUrl.parse(url).newBuilder();
         urlBuilder.addQueryParameter("d", date).build();
+
         url = urlBuilder.toString();
+        Log.d("url : ",url);
 
         Request request = new Request.Builder().url(url).build();
         Response response = client.newCall(request).execute();
 
-        return response.body().toString();
+        return response.body().string();
 
     }
 
 
-    public Map<String, String> getRequest(String date) throws IOException{
+    public Map<String, String> getRequest() throws IOException{
 
-        this.date = date;
+        // this.date = getToday();
+        this.date = "2017-01-16";
         String response = run("http://dimigo.in/pages/dimibob_getdata.php");
+        Log.d("result : ", response);
 
         Map<String, String> result = JsonConverter.jsonConvert(response);
 
         return result;
+    }
+
+
+    public String getToday(){
+
+        Date todayDate = new Date();
+        SimpleDateFormat todaySimple = new SimpleDateFormat("yyyy-MM-dd");
+
+        return todaySimple.format(todayDate).toString();
     }
 
 
