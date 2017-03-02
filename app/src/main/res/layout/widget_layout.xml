@@ -3,18 +3,112 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
     <TextView
+        android:id="@+id/widget_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DIMIBOB"
+        android:textColor="@color/colorPrimary"
+        android:textStyle="bold"
+        android:textSize="23dp"/>
+
+    <RelativeLayout
+        android:layout_marginTop="10dp"
+        android:id="@+id/break_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/widget_title">
+
+        <TextView
+            android:id="@+id/break_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="아침"
+            android:textSize="23dp"
+            android:textColor="@color/colorPrimary"
+            android:layout_centerHorizontal="true" />
+
+        <ImageView
+            android:layout_width="23dp"
+            android:layout_height="2dp"
+            android:layout_below="@id/break_title"
+            android:layout_centerHorizontal="true" />
+
+    </RelativeLayout>
+
+
+    <TextView
         android:id="@+id/breakfast"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textSize="14dp"
+        android:text="breakfast!!!!!!"
+        android:layout_below="@id/break_group"/>
+
+    <RelativeLayout
+        android:layout_marginTop="7dp"
+        android:id="@+id/lunch_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/breakfast">
+
+        <TextView
+            android:id="@+id/lunch_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="아침"
+            android:textSize="23dp"
+            android:textColor="@color/colorPrimary"
+            android:layout_centerHorizontal="true" />
+
+        <ImageView
+            android:layout_width="23dp"
+            android:layout_height="2dp"
+            android:layout_below="@id/lunch_title"
+            android:layout_centerHorizontal="true" />
+
+    </RelativeLayout>
+
+
+
     <TextView
         android:id="@+id/lunch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/breakfast"/>
+        android:layout_below="@id/lunch_group"
+        android:textSize="14dp"
+        android:text="lunch!!!!!!" />
+
+
+    <RelativeLayout
+        android:layout_marginTop="7dp"
+        android:id="@+id/dinner_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/lunch">
+
+        <TextView
+            android:id="@+id/dinner_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="아침"
+            android:textSize="23dp"
+            android:textColor="@color/colorPrimary"
+            android:layout_centerHorizontal="true" />
+
+        <ImageView
+            android:layout_width="23dp"
+            android:layout_height="2dp"
+            android:layout_below="@id/dinner_title"
+            android:layout_centerHorizontal="true" />
+
+    </RelativeLayout>
+
     <TextView
         android:id="@+id/dinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/lunch"/>
+        android:layout_below="@id/dinner_group"
+        android:textSize="14dp"
+        android:text="dinner!!!!!!"/>
 
 </RelativeLayout>

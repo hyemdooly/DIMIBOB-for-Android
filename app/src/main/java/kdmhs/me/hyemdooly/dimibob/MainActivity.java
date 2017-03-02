@@ -2,7 +2,6 @@ package kdmhs.me.hyemdooly.dimibob;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -13,7 +12,9 @@ public class MainActivity extends AppCompatActivity {
 
         final HttpRequest httpRequest = new HttpRequest();
 
-        final TextView textView = (TextView) findViewById(R.id.textview);
+
+
+
 
 //        Thread t = new Thread(new Runnable() {
 //            @Override
