@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <RelativeLayout
+        android:id="@+id/contents"
+        app:layout_widthPercent="70%"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:padding="10dp">
+
+        <RelativeLayout
+            android:id="@+id/break_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/break_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="아침"
+                android:textSize="15dp"
+                android:textColor="@color/colorPrimary"
+                android:layout_centerHorizontal="true" />
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="1dp"
+                android:layout_below="@id/break_title"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/line"/>
+
+        </RelativeLayout>
+
+
+        <TextView
+            android:id="@+id/breakfast"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14dp"
+            android:text="breakfast!!!!!!"
+            android:layout_below="@id/break_group"/>
+
+        <RelativeLayout
+            android:layout_marginTop="7dp"
+            android:id="@+id/lunch_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/breakfast">
+
+            <TextView
+                android:id="@+id/lunch_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="점심"
+                android:textSize="15dp"
+                android:textColor="@color/colorPrimary"
+                android:layout_centerHorizontal="true" />
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="1dp"
+                android:layout_below="@id/lunch_title"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/line"/>
+
+        </RelativeLayout>
+
+
+
+        <TextView
+            android:id="@+id/lunch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/lunch_group"
+            android:textSize="14dp"
+            android:text="lunch!!!!!!" />
+
+
+        <RelativeLayout
+            android:layout_marginTop="7dp"
+            android:id="@+id/dinner_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/lunch">
+
+            <TextView
+                android:id="@+id/dinner_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="아침"
+                android:textSize="15dp"
+                android:textColor="@color/colorPrimary"
+                android:layout_centerHorizontal="true" />
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="1dp"
+                android:layout_below="@id/dinner_title"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/line"/>
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/dinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/dinner_group"
+            android:textSize="14dp"
+            android:text="dinner!!!!!!"/>
+
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        app:layout_widthPercent="20%"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:layout_toLeftOf="@id/contents"
+        android:layout_alignBottom="@id/contents"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
+
+    </RelativeLayout>
+
+</android.support.percent.PercentRelativeLayout>
