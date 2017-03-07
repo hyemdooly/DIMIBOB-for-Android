@@ -3,13 +3,12 @@ package kdmhs.me.hyemdooly.dimibob.fonts;
 import android.content.Context;
 import android.graphics.Typeface;
 import android.util.AttributeSet;
-import android.widget.TextView;
 
 /**
  * Created by songhyemin on 2017. 3. 3..
  */
 
-public class KopubBoldTextView extends TextView {
+public class KopubBoldTextView extends android.support.v7.widget.AppCompatTextView {
 
     public KopubBoldTextView(Context context) {
         super(context);

@@ -9,7 +9,7 @@ import android.widget.TextView;
  * Created by songhyemin on 2017. 3. 3..
  */
 
-public class KopubMediumTextView extends TextView {
+public class KopubMediumTextView extends android.support.v7.widget.AppCompatTextView {
 
     public KopubMediumTextView(Context context) {
         super(context);

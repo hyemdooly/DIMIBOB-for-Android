@@ -3,133 +3,141 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="20dp">
+    android:padding="20dp" >
 
     <RelativeLayout
-        android:id="@+id/line_group"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="3dp"
-        android:layout_marginBottom="15dp">
-        <ImageView
-            android:id="@+id/line"
-            android:layout_width="40dp"
-            android:layout_height="4dp"
-            android:src="@drawable/line"
-            android:layout_centerVertical="true"/>
-        <kdmhs.me.hyemdooly.dimibob.fonts.KopubBoldTextView
+        android:background="@drawable/dr_back"
+        android:padding="20dp">
+        <RelativeLayout
+            android:id="@+id/line_group"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="오늘"
-            android:textColor="@color/colorPrimary"
-            android:layout_toRightOf="@id/line"
-            android:layout_marginLeft="8dp"
-            android:textSize="15dp" />
-    </RelativeLayout>
+            android:layout_marginBottom="15dp">
+            <ImageView
+                android:id="@+id/line"
+                android:layout_width="40dp"
+                android:layout_height="4dp"
+                android:src="@drawable/line"
+                android:layout_centerVertical="true"/>
+            <kdmhs.me.hyemdooly.dimibob.fonts.KopubBoldTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="오늘"
+                android:textColor="@color/colorPrimary"
+                android:layout_toRightOf="@id/line"
+                android:layout_marginLeft="8dp"
+                android:textSize="15dp" />
+        </RelativeLayout>
 
 
-    <RelativeLayout
-        android:id="@+id/break_group"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/line_group">
-
-        <kdmhs.me.hyemdooly.dimibob.fonts.KopubMediumTextView
-            android:id="@+id/break_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="아침"
-            android:textSize="20dp"
-            android:textColor="@color/colorPrimary" />
-
-        <kdmhs.me.hyemdooly.dimibob.fonts.KopubLightTextView
-            android:id="@+id/breakfast"
+        <RelativeLayout
+            android:id="@+id/break_group"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="14dp"
-            android:text="오징어탕수육 보쌈 오징어탕수육 보쌈 갈비탕 갈비탕 야쿠르트 파인애플 주스 애플 주스 망고 주스 유자차 유후!!"
-            android:layout_toRightOf="@id/break_title"
-            android:layout_marginLeft="20dp"/>
+            android:layout_below="@id/line_group">
 
-    </RelativeLayout>
+            <kdmhs.me.hyemdooly.dimibob.fonts.KopubMediumTextView
+                android:id="@+id/break_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="아침"
+                android:textSize="20dp"
+                android:textColor="@color/colorPrimary" />
 
-    <RelativeLayout
-        android:id="@+id/lunch_group"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/break_group"
-        android:layout_marginTop="15dp">
+            <kdmhs.me.hyemdooly.dimibob.fonts.KopubLightTextView
+                android:id="@+id/breakfast"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14dp"
+                android:text="오징어탕수육 보쌈 오징어탕수육 보쌈 갈비탕 갈비탕 야쿠르트 파인애플 주스 애플 주스 망고 주스 유자차 유후!!"
+                android:layout_toRightOf="@id/break_title"
+                android:layout_marginLeft="20dp"/>
 
-        <kdmhs.me.hyemdooly.dimibob.fonts.KopubMediumTextView
-            android:id="@+id/lunch_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="점심"
-            android:textSize="20dp"
-            android:textColor="@color/colorPrimary" />
+        </RelativeLayout>
 
-        <kdmhs.me.hyemdooly.dimibob.fonts.KopubLightTextView
-            android:id="@+id/lunch"
+        <RelativeLayout
+            android:id="@+id/lunch_group"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="14dp"
-            android:text="오징어탕수육 보쌈 갈비탕 김치 배추 김치 깍두기 백김치 야쿠르트 파인애플 주스 애플 주스 망고 주스 유자차 유후!!"
-            android:layout_toRightOf="@id/lunch_title"
-            android:layout_marginLeft="20dp"/>
+            android:layout_below="@id/break_group"
+            android:layout_marginTop="15dp">
 
-    </RelativeLayout>
+            <kdmhs.me.hyemdooly.dimibob.fonts.KopubMediumTextView
+                android:id="@+id/lunch_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="점심"
+                android:textSize="20dp"
+                android:textColor="@color/colorPrimary" />
 
-    <RelativeLayout
-        android:id="@+id/dinner_group"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/lunch_group"
-        android:layout_marginTop="15dp">
+            <kdmhs.me.hyemdooly.dimibob.fonts.KopubLightTextView
+                android:id="@+id/lunch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14dp"
+                android:text="오징어탕수육 보쌈 갈비탕 김치 배추 김치 깍두기 백김치 야쿠르트 파인애플 주스 애플 주스 망고 주스 유자차 유후!!"
+                android:layout_toRightOf="@id/lunch_title"
+                android:layout_marginLeft="20dp"/>
 
-        <kdmhs.me.hyemdooly.dimibob.fonts.KopubMediumTextView
-            android:id="@+id/dinner_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="저녁"
-            android:textSize="20dp"
-            android:textColor="@color/colorPrimary" />
+        </RelativeLayout>
 
-        <kdmhs.me.hyemdooly.dimibob.fonts.KopubLightTextView
-            android:id="@+id/dinner"
+        <RelativeLayout
+            android:id="@+id/dinner_group"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="14dp"
-            android:text="오징어탕수육 보쌈 갈비탕 김치 배추 김치 깍두기 백김치 야쿠르트 파인애플 주스 애플 주스 망고 주스 유자차 유후!!"
-            android:layout_toRightOf="@id/dinner_title"
-            android:layout_marginLeft="20dp"/>
+            android:layout_below="@id/lunch_group"
+            android:layout_marginTop="15dp">
 
-    </RelativeLayout>
+            <kdmhs.me.hyemdooly.dimibob.fonts.KopubMediumTextView
+                android:id="@+id/dinner_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="저녁"
+                android:textSize="20dp"
+                android:textColor="@color/colorPrimary" />
 
-    <RelativeLayout
-        android:id="@+id/snack_group"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/dinner_group"
-        android:layout_marginTop="15dp">
+            <kdmhs.me.hyemdooly.dimibob.fonts.KopubLightTextView
+                android:id="@+id/dinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14dp"
+                android:text="오징어탕수육 보쌈 갈비탕 김치 배추 김치 깍두기 백김치 야쿠르트 파인애플 주스 애플 주스 망고 주스 유자차 유후!!"
+                android:layout_toRightOf="@id/dinner_title"
+                android:layout_marginLeft="20dp"/>
 
-        <kdmhs.me.hyemdooly.dimibob.fonts.KopubMediumTextView
-            android:id="@+id/snack_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="간식"
-            android:textSize="20dp"
-            android:textColor="@color/colorPrimary" />
+        </RelativeLayout>
 
-        <kdmhs.me.hyemdooly.dimibob.fonts.KopubLightTextView
-            android:id="@+id/snack"
+        <RelativeLayout
+            android:id="@+id/snack_group"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="14dp"
-            android:text="초코 브라우니 우유"
-            android:layout_toRightOf="@id/snack_title"
-            android:layout_marginLeft="20dp"/>
+            android:layout_below="@id/dinner_group"
+            android:layout_marginTop="15dp">
+
+            <kdmhs.me.hyemdooly.dimibob.fonts.KopubMediumTextView
+                android:id="@+id/snack_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="간식"
+                android:textSize="20dp"
+                android:textColor="@color/colorPrimary" />
+
+            <kdmhs.me.hyemdooly.dimibob.fonts.KopubLightTextView
+                android:id="@+id/snack"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14dp"
+                android:text="초코 브라우니 우유"
+                android:layout_toRightOf="@id/snack_title"
+                android:layout_marginLeft="20dp"/>
+
+        </RelativeLayout>
 
     </RelativeLayout>
+
+
 
 
 
