@@ -1,7 +1,5 @@
 package kdmhs.me.hyemdooly.dimibob;
 
-import android.util.Log;
-
 import org.json.JSONObject;
 
 import java.util.HashMap;
@@ -13,7 +11,7 @@ import java.util.Map;
 
 public class JsonConverter {
 
-    public static Map<String, String> jsonConvert(String json){
+    public Map<String, String> jsonConvert(String json){
         JSONObject jsonObject;
         Map<String, String> result = new HashMap<>();
 

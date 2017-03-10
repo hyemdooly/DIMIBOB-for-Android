@@ -38,13 +38,13 @@ public class HttpRequest {
 
 
     public Map<String, String> getRequest() throws IOException{
+        JsonConverter jsonConverter = new JsonConverter();
 
-        // this.date = getToday();
-        this.date = "2017-01-16";
+        this.date = getToday();
         String response = run("http://dimigo.in/pages/dimibob_getdata.php");
         Log.d("result : ", response);
 
-        Map<String, String> result = JsonConverter.jsonConvert(response);
+        Map<String, String> result = jsonConverter.jsonConvert(response);
 
         return result;
     }

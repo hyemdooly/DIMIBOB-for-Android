@@ -10,11 +10,13 @@
         android:layout_height="wrap_content"
         android:background="@drawable/dr_back"
         android:padding="20dp">
+
         <RelativeLayout
             android:id="@+id/line_group"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp">
+
             <ImageView
                 android:id="@+id/line"
                 android:layout_width="40dp"
