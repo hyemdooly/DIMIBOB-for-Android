@@ -64,10 +64,10 @@ public class WidgetProvider extends AppWidgetProvider {
             }
         });
 
+
         t.start();
 
-
-
     }
+
 
 }
