@@ -4,8 +4,10 @@ import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
+import android.os.Message;
+import android.widget.RemoteViews;
 
-import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -13,6 +15,8 @@ import java.util.Map;
  */
 
 public class WidgetProvider extends AppWidgetProvider {
+
+    RemoteViews.RemoteView remoteView;
 
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -41,18 +45,45 @@ public class WidgetProvider extends AppWidgetProvider {
         super.onDisabled(context);
     }
 
+
+
     public void updateWidget(final Context context, AppWidgetManager appWidgetManager, int[] appWidgetId){
+
+        final RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.widget_today);
 
         final HttpRequest httpRequest = new HttpRequest();
 
-        Thread t = new Thread(new Runnable() {
+        final android.os.Handler handler = new android.os.Handler(){
+            @Override
+            public void handleMessage(Message msg) {
+                Bundle bundle = msg.getData();
+
+                remoteViews.setTextViewText(R.id.breakfast, bundle.getString("breakfast"));
+                remoteViews.setTextViewText(R.id.lunch, bundle.getString("lunch"));
+                remoteViews.setTextViewText(R.id.dinner, bundle.getString("dinner"));
+                remoteViews.setTextViewText(R.id.snack, bundle.getString("snack"));
+
+            }
+        };
+
+
+        new Thread(new Runnable() {
             @Override
             public void run() {
-                Map<String, String> response = new HashMap<>();
                 try{
-                    response = httpRequest.getRequest();
+                    Map<String, String> response = httpRequest.getRequest();
 
+                    Message msg = handler.obtainMessage();
+                    Bundle bundle = new Bundle();
 
+                    bundle.putCharSequence("breakfast",response.get("breakfast").toString());
+                    bundle.putCharSequence("lunch",response.get("lunch").toString());
+                    bundle.putCharSequence("dinner",response.get("dinner").toString());
+                    bundle.putCharSequence("snack",response.get("snack").toString());
+
+                    msg.setData(bundle);
+
+                    handler.sendMessage(msg);
 
                 } catch(Exception e){
                     e.printStackTrace();
@@ -62,12 +93,14 @@ public class WidgetProvider extends AppWidgetProvider {
 
 
             }
-        });
+        }).start();
 
 
-        t.start();
+        appWidgetManager.updateAppWidget(appWidgetId, remoteViews);
+
 
     }
+
 
 
 }
