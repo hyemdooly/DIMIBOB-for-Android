@@ -2,13 +2,10 @@ package kdmhs.me.hyemdooly.dimibob;
 
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
-import android.os.Message;
 import android.widget.RemoteViews;
-
-import java.util.Map;
 
 /**
  * Created by songhyemin on 2017. 3. 7..
@@ -16,18 +13,30 @@ import java.util.Map;
 
 public class WidgetProvider extends AppWidgetProvider {
 
-    RemoteViews.RemoteView remoteView;
 
     @Override
     public void onReceive(Context context, Intent intent) {
         super.onReceive(context, intent);
+
+        //내가 작성한다~~~~~~
+        String mAction = intent.getAction();
+
+        if(AppWidgetManager.ACTION_APPWIDGET_ENABLED.equals(mAction)) {
+
+        } else if(AppWidgetManager.ACTION_APPWIDGET_UPDATE.equals(mAction)) {
+            AppWidgetManager mManager = AppWidgetManager.getInstance(context);
+            initWidget(context, mManager, mManager.getAppWidgetIds(new ComponentName(context, getClass())));
+        }
     }
 
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
         super.onUpdate(context, appWidgetManager, appWidgetIds);
-        updateWidget(context, appWidgetManager, appWidgetIds);
 
+        for(int i = 0; i < appWidgetIds.length; i++) {
+            final RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.widget_today);
+            appWidgetManager.updateAppWidget(appWidgetIds[i], remoteViews);
+        }
     }
 
     @Override
@@ -46,12 +55,15 @@ public class WidgetProvider extends AppWidgetProvider {
     }
 
 
-
-    public void updateWidget(final Context context, AppWidgetManager appWidgetManager, int[] appWidgetId){
+    public void initWidget(final Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
 
         final RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.widget_today);
 
-        final HttpRequest httpRequest = new HttpRequest();
+        for(int appWidgetId : appWidgetIds) {
+            appWidgetManager.updateAppWidget(appWidgetId, remoteViews);
+        }
+
+        /*final HttpRequest httpRequest = new HttpRequest();
 
         final android.os.Handler handler = new android.os.Handler(){
             @Override
@@ -93,14 +105,11 @@ public class WidgetProvider extends AppWidgetProvider {
 
 
             }
-        }).start();
+        }).start();*/
 
-
-        appWidgetManager.updateAppWidget(appWidgetId, remoteViews);
 
 
     }
-
 
 
 }

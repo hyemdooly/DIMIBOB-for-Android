@@ -8,39 +8,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.widget_today);
-
-        final HttpRequest httpRequest = new HttpRequest();
-
-
-
-
-
-//        Thread t = new Thread(new Runnable() {
-//            @Override
-//            public void run() {
-//                Map<String, String> response = new HashMap<>();
-//
-//                try {
-//                    response = httpRequest.getRequest();
-//                } catch (IOException e) {
-//                    e.printStackTrace();
-//                }
-//
-//                final Map<String, String> finalResponse = response;
-//
-//                runOnUiThread(new Runnable() {
-//                    @Override
-//                    public void run() {
-//                        textView.setText(finalResponse.toString());
-//                    }
-//                });
-//
-//
-//            }
-//        });
-//
-//        t.start();
+        setContentView(R.layout.activity_main);
 
 
 
