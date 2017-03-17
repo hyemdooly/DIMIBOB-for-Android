@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:text="안녕하세요!"
         android:textStyle="bold"
-        android:textSize="30dp"
+        android:textSize="25dp"
          />
 
     <TextView
@@ -31,7 +31,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="ⓒ 2017. Hyemdooly all rights reserved."
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="15dp"
         android:textSize="10dp"
         android:layout_below="@id/textview_contents"
         />

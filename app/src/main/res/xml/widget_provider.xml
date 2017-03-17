@@ -2,7 +2,7 @@
 <appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
     android:initialLayout="@layout/widget_today"
     android:minHeight="146dp"
-    android:minWidth="146dp"
-    android:resizeMode="horizontal|vertical"
+    android:minWidth="442dp"
+    android:resizeMode="horizontal"
     android:updatePeriodMillis="10800000"
     />
