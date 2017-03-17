@@ -16,7 +16,6 @@ import java.util.Map;
 
 public class WidgetProvider extends AppWidgetProvider {
 
-
     @Override
     public void onReceive(Context context, Intent intent) {
         super.onReceive(context, intent);
@@ -41,8 +40,6 @@ public class WidgetProvider extends AppWidgetProvider {
             RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.widget_today);
             appWidgetManager.updateAppWidget(appWidgetId, remoteViews);
             updateWidget(context, appWidgetManager, appWidgetId);
-
-
         }
 
     }
@@ -61,6 +58,8 @@ public class WidgetProvider extends AppWidgetProvider {
     public void onDisabled(Context context) {
         super.onDisabled(context);
     }
+
+
 
 
     public void updateWidget(final Context context, AppWidgetManager appWidgetManager, int appWidgetId) {
@@ -93,8 +92,5 @@ public class WidgetProvider extends AppWidgetProvider {
         t.start();
 
         appWidgetManager.updateAppWidget(appWidgetId, updateViews);
-
-
     }
-
 }
