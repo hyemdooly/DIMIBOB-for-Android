@@ -70,9 +70,12 @@ public class WidgetProvider extends AppWidgetProvider {
         Thread t = new Thread(new Runnable() {
             @Override
             public void run() {
+
+                // 디미고 api로부터 request값을 받아오는 부분
                 HttpRequest httpRequest = new HttpRequest();
                 Map<String, String> response = null;
 
+                // views 안의 textview에 setText해주는 부분
                 try {
                     response = httpRequest.getRequest();
                     updateViews.setTextViewText(R.id.breakfast, response.get("breakfast").toString());
