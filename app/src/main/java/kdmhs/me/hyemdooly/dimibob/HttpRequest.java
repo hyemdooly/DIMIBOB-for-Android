@@ -42,9 +42,9 @@ public class HttpRequest {
 
         this.date = getToday();
         String response = run("http://dimigo.in/pages/dimibob_getdata.php");
-        Log.d("result : ", response);
 
         Map<String, String> result = jsonConverter.jsonConvert(response);
+        Log.d("result : ", result.toString());
 
         return result;
     }
