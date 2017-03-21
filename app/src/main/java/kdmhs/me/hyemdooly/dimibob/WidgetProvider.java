@@ -5,6 +5,7 @@ import android.appwidget.AppWidgetProvider;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.widget.RemoteViews;
 
 import java.io.IOException;
@@ -16,9 +17,14 @@ import java.util.Map;
 
 public class WidgetProvider extends AppWidgetProvider {
 
+    Map<String, String> response;
+    Thread t;
+
     @Override
     public void onReceive(Context context, Intent intent) {
         super.onReceive(context, intent);
+
+        initWidget();
 
         ComponentName thisAppWidgetIds = new ComponentName(context.getPackageName(), getClass().getName());
         AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
@@ -34,6 +40,7 @@ public class WidgetProvider extends AppWidgetProvider {
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
         super.onUpdate(context, appWidgetManager, appWidgetIds);
 
+        initWidget();
 
         for(int appWidgetId : appWidgetIds){
 
@@ -65,22 +72,31 @@ public class WidgetProvider extends AppWidgetProvider {
     public void updateWidget(final Context context, AppWidgetManager appWidgetManager, int appWidgetId) {
 
         final RemoteViews updateViews = new RemoteViews(context.getPackageName(), R.layout.widget_today);
+        try {
+            t.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        updateViews.setTextViewText(R.id.breakfast, response.get("breakfast").toString());
+        updateViews.setTextViewText(R.id.dinner, response.get("dinner").toString());
+        updateViews.setTextViewText(R.id.lunch, response.get("lunch").toString());
+        updateViews.setTextViewText(R.id.snack, response.get("snack").toString());
 
-        Thread t = new Thread(new Runnable() {
+
+
+        appWidgetManager.updateAppWidget(appWidgetId, updateViews);
+    }
+
+    public void initWidget(){
+        t = new Thread(new Runnable() {
             @Override
             public void run() {
 
-                // 디미고 api로부터 request값을 받아오는 부분
-                HttpRequest httpRequest = new HttpRequest();
-                Map<String, String> response = null;
 
-                // views 안의 textview에 setText해주는 부분
                 try {
-                    response = httpRequest.getRequest();
-                    updateViews.setTextViewText(R.id.breakfast, response.get("breakfast").toString());
-                    updateViews.setTextViewText(R.id.dinner, response.get("dinner").toString());
-                    updateViews.setTextViewText(R.id.lunch, response.get("lunch").toString());
-                    updateViews.setTextViewText(R.id.snack, response.get("snack").toString());
+                    response = new HttpRequest().getRequest();
+                    Log.d("responseasdfasdfasdf : ", response.toString());
+
 
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -90,7 +106,5 @@ public class WidgetProvider extends AppWidgetProvider {
         });
 
         t.start();
-
-        appWidgetManager.updateAppWidget(appWidgetId, updateViews);
     }
 }

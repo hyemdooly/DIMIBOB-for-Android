@@ -1,7 +1,5 @@
 package kdmhs.me.hyemdooly.dimibob;
 
-import android.util.Log;
-
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -27,7 +25,6 @@ public class HttpRequest {
         urlBuilder.addQueryParameter("d", date).build();
 
         url = urlBuilder.toString();
-        Log.d("url : ",url);
 
         Request request = new Request.Builder().url(url).build();
         Response response = client.newCall(request).execute();
@@ -44,7 +41,6 @@ public class HttpRequest {
         String response = run("http://dimigo.in/pages/dimibob_getdata.php");
 
         Map<String, String> result = jsonConverter.jsonConvert(response);
-        Log.d("result : ", result.toString());
 
         return result;
     }
