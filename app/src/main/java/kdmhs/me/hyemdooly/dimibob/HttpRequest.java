@@ -15,8 +15,8 @@ import okhttp3.Response;
  */
 
 public class HttpRequest {
-    OkHttpClient client = new OkHttpClient();
 
+    OkHttpClient client = new OkHttpClient();
     String date;
 
     String run(String url) throws IOException{

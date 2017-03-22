@@ -7,11 +7,14 @@
     android:layout_centerVertical="true"
     >
 
-    <RelativeLayout
+
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/dr_back"
-        android:padding="20dp">
+        android:padding="20dp"
+        android:orientation="vertical">
 
         <RelativeLayout
             android:id="@+id/line_group"
@@ -32,15 +35,18 @@
                 android:textColor="@color/colorPrimary"
                 android:layout_toRightOf="@id/line"
                 android:layout_marginLeft="8dp"
+                android:layout_centerVertical="true"
                 android:textSize="15dp" />
         </RelativeLayout>
+
 
 
         <RelativeLayout
             android:id="@+id/break_group"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/line_group">
+            android:layout_weight="1"
+            >
 
             <TextView
                 android:id="@+id/break_title"
@@ -63,7 +69,7 @@
             android:id="@+id/lunch_group"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/break_group"
+            android:layout_weight="1"
             android:layout_marginTop="@dimen/widget_meal_component_margin">
 
             <TextView
@@ -87,7 +93,7 @@
             android:id="@+id/dinner_group"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/lunch_group"
+            android:layout_weight="1"
             android:layout_marginTop="@dimen/widget_meal_component_margin">
 
             <TextView
@@ -111,7 +117,7 @@
             android:id="@+id/snack_group"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/dinner_group"
+            android:layout_weight="1"
             android:layout_marginTop="@dimen/widget_meal_component_margin">
 
             <TextView
@@ -131,7 +137,7 @@
 
         </RelativeLayout>
 
-    </RelativeLayout>
+    </LinearLayout>
 
 
 

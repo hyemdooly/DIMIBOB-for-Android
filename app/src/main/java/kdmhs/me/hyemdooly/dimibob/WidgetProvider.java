@@ -87,6 +87,7 @@ public class WidgetProvider extends AppWidgetProvider {
         appWidgetManager.updateAppWidget(appWidgetId, updateViews);
     }
 
+
     public void initWidget(){
         t = new Thread(new Runnable() {
             @Override
