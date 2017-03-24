@@ -19,6 +19,7 @@ public class WidgetProvider extends AppWidgetProvider {
 
     Map<String, String> response;
     Thread t;
+    boolean checkOk;
 
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -74,13 +75,23 @@ public class WidgetProvider extends AppWidgetProvider {
         final RemoteViews updateViews = new RemoteViews(context.getPackageName(), R.layout.widget_today);
         try {
             t.join();
+            if(checkOk){
+                updateViews.setTextViewText(R.id.breakfast, response.get("breakfast").toString());
+                updateViews.setTextViewText(R.id.dinner, response.get("dinner").toString());
+                updateViews.setTextViewText(R.id.lunch, response.get("lunch").toString());
+                updateViews.setTextViewText(R.id.snack, response.get("snack").toString());
+            }else {
+                updateViews.setTextViewText(R.id.breakfast, "인터넷이 원활하지 않습니다.");
+                updateViews.setTextViewText(R.id.dinner, "인터넷이 원활하지 않습니다.");
+                updateViews.setTextViewText(R.id.lunch, "인터넷이 원활하지 않습니다.");
+                updateViews.setTextViewText(R.id.snack, "인터넷이 원활하지 않습니다.");
+            }
+
+
+
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        updateViews.setTextViewText(R.id.breakfast, response.get("breakfast").toString());
-        updateViews.setTextViewText(R.id.dinner, response.get("dinner").toString());
-        updateViews.setTextViewText(R.id.lunch, response.get("lunch").toString());
-        updateViews.setTextViewText(R.id.snack, response.get("snack").toString());
 
 
 
@@ -96,11 +107,13 @@ public class WidgetProvider extends AppWidgetProvider {
 
                 try {
                     response = new HttpRequest().getRequest();
+                    checkOk = true;
                     Log.d("responseasdfasdfasdf : ", response.toString());
 
 
                 } catch (IOException e) {
                     e.printStackTrace();
+                    checkOk = false;
                 }
 
             }

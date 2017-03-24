@@ -3,5 +3,6 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="widget_meal_component_margin">13dp</dimen>
-    <dimen name="widget_today_title_text_size">15dp</dimen>
+    <dimen name="widget_today_title_text_size">11dp</dimen>
+
 </resources>
