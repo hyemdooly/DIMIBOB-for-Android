@@ -2,6 +2,7 @@ package kdmhs.me.hyemdooly.dimibob;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.ListView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -9,5 +10,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        ListView listView = (ListView) findViewById(R.id.listview);
+        ListViewAdapter adapter = new ListViewAdapter();
+
+        listView.setAdapter(adapter);
+        adapter.addItem("상단바 알림 설정");
+
     }
 }
