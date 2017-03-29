@@ -1,13 +1,19 @@
 package kdmhs.me.hyemdooly.dimibob;
 
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.CompoundButton;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+
+import static android.content.ContentValues.TAG;
 
 /**
  * Created by songhyemin on 2017. 3. 28..
@@ -16,8 +22,15 @@ import java.util.ArrayList;
 public class ListViewAdapter extends BaseAdapter {
 
     private ArrayList<ListViewItem> listViewItems = new ArrayList<ListViewItem>();
+    Context context;
+    SharedPreferences preference;
+    SharedPreferences.Editor editor;
 
-    public ListViewAdapter() {
+
+    public ListViewAdapter(Context context) {
+        this.context = context;
+        preference = context.getSharedPreferences("ToggleStatus", 0);
+        editor = preference.edit();
 
     }
 
@@ -48,6 +61,25 @@ public class ListViewAdapter extends BaseAdapter {
         }
 
         TextView titleView = (TextView) convertView.findViewById(R.id.list_title);
+        Switch aSwitch = (Switch) convertView.findViewById(R.id.ok_toggle);
+
+
+        aSwitch.setChecked(preference.getBoolean("ToggleStatus", false));
+
+        aSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked){
+                    editor.putBoolean("ToggleStatus", true);
+                    editor.commit();
+                    Log.d(TAG, "onCheckedChanged: "+preference.getBoolean("ToggleStatus", false));
+                }else {
+                    editor.putBoolean("ToggleStatus", false);
+                    editor.commit();
+                    Log.d(TAG, "onCheckedChanged: "+preference.getBoolean("ToggleStatus", false));
+                }
+            }
+        });
 
         ListViewItem listViewItem = listViewItems.get(position);
 
