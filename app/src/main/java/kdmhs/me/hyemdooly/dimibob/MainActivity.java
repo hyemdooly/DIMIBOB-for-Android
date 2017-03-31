@@ -2,13 +2,15 @@ package kdmhs.me.hyemdooly.dimibob;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
     private long backPressed;
-
+    DeveloperSayDialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,7 +21,19 @@ public class MainActivity extends AppCompatActivity {
         ListViewAdapter adapter = new ListViewAdapter(getApplicationContext());
 
         listView.setAdapter(adapter);
-        adapter.addItem("상단바 알림 설정");
+        adapter.addItem("상단바 알림 설정", true);
+        adapter.addItem("개발자의 말", false);
+
+        dialog = new DeveloperSayDialog(MainActivity.this);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if(position == 1){
+                    dialog.dialogShow();
+                }
+            }
+        });
 
     }
 

@@ -23,6 +23,7 @@ public class ListViewAdapter extends BaseAdapter {
 
     private ArrayList<ListViewItem> listViewItems = new ArrayList<ListViewItem>();
     Context context;
+    ArrayList<Boolean> toggleUseList = new ArrayList<>();
     SharedPreferences preference;
     SharedPreferences.Editor editor;
 
@@ -80,18 +81,20 @@ public class ListViewAdapter extends BaseAdapter {
                 }
             }
         });
-
         ListViewItem listViewItem = listViewItems.get(position);
-
         titleView.setText(listViewItem.getTitle());
+
+        if(!toggleUseList.get(position)){
+            aSwitch.setVisibility(View.INVISIBLE);
+        }
 
         return convertView;
     }
 
-    public void addItem(String title){
+    public void addItem(String title, boolean toggleUse){
         ListViewItem item = new ListViewItem();
         item.setTitle(title);
-
+        toggleUseList.add(toggleUse);
         listViewItems.add(item);
 
     }
