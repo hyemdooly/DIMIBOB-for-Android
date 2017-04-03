@@ -9,6 +9,7 @@ import android.widget.RemoteViews;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -17,11 +18,14 @@ import java.util.Map;
 
 public class WidgetProvider extends AppWidgetProvider {
 
-    Map<String, String> response;
+    Map<String, String> response = new HashMap<>();
     ArrayList<Integer> mealIdList = new ArrayList<>(Arrays.asList(R.id.breakfast, R.id.lunch, R.id.dinner, R.id.snack));
     ArrayList<String> mealNameList = new ArrayList<>(Arrays.asList("breakfast", "lunch", "dinner", "snack"));
     Thread t;
     boolean checkOk;
+
+    Map<String, String> lastMeals;
+
 
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -36,6 +40,8 @@ public class WidgetProvider extends AppWidgetProvider {
         for(int appWidgetId : ids){
             updateWidget(context, appWidgetManager, appWidgetId);
         }
+
+
 
     }
 
@@ -79,13 +85,22 @@ public class WidgetProvider extends AppWidgetProvider {
         try {
             t.join();
             if(checkOk){
+                lastMeals = response;
                 for(int i = 0 ; i < 4; i++){
                     updateViews.setTextViewText(mealIdList.get(i), response.get(mealNameList.get(i).toString()));
                 }
             }else {
-                for(int i = 0 ; i < 4; i++){
-                    updateViews.setTextViewText(mealIdList.get(i), "인터넷이 원활하지 않습니다.");
+                if(!response.isEmpty()){
+                    for(int i = 0 ; i < 4; i++){
+                        updateViews.setTextViewText(mealIdList.get(i), lastMeals.get(mealNameList.get(i).toString()));
+                    }
+
+                }else{
+                    for(int i = 0 ; i < 4; i++){
+                        updateViews.setTextViewText(mealIdList.get(i), "인터넷이 원활하지 않습니다.");
+                    }
                 }
+
             }
 
 
@@ -103,6 +118,8 @@ public class WidgetProvider extends AppWidgetProvider {
 
 
     public void initWidget(){
+
+
         t = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -120,5 +137,7 @@ public class WidgetProvider extends AppWidgetProvider {
         });
 
         t.start();
+
+
     }
 }
