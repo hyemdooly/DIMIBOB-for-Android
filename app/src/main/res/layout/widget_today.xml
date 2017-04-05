@@ -135,6 +135,20 @@
 
     </LinearLayout>
 
+    <ImageButton
+        android:id="@+id/refresh_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_refresh_24dp"
+        android:background="@drawable/dr_back"
+        android:backgroundTint="@color/colorWhite"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="@dimen/widget_today_title_text_size"
+        />
+
+
+
 
 
 
