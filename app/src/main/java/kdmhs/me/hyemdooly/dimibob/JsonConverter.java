@@ -27,6 +27,7 @@ public class JsonConverter {
             result.put("lunch", "급식정보가 없습니다.");
             result.put("dinner", "급식정보가 없습니다.");
             result.put("snack", "급식정보가 없습니다.");
+
         }
 
         return result;

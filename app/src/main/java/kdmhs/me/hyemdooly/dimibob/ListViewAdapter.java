@@ -2,6 +2,7 @@ package kdmhs.me.hyemdooly.dimibob;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,8 @@ import android.widget.Switch;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+
+import static android.content.ContentValues.TAG;
 
 /**
  * Created by songhyemin on 2017. 3. 28..
@@ -70,9 +73,11 @@ public class ListViewAdapter extends BaseAdapter {
                 if(isChecked){
                     editor.putBoolean("ToggleStatus", true);
                     editor.commit();
+                    Log.d(TAG, "onCheckedChanged: "+preference.getBoolean("ToggleStatus", false));
                 }else {
                     editor.putBoolean("ToggleStatus", false);
                     editor.commit();
+                    Log.d(TAG, "onCheckedChanged: "+preference.getBoolean("ToggleStatus", false));
                 }
             }
         });
