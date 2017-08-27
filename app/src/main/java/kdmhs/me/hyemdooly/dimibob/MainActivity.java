@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
                         try{
                             updateData();
                             t.join();
-                            dataController.addData(response);
+                            dataController.addData();
                             Toast.makeText(getApplicationContext(), "가져오기에 성공했습니다!", Toast.LENGTH_LONG).show();
 
                         }catch (Exception e){
