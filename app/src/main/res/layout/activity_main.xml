@@ -21,7 +21,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ⓒ 2017. Hyemdooly all rights reserved.\n아직 상단바알림 기능은 지원하지 않습니다ㅠㅠ"
+        android:text="ⓒ 2017. Hyemdooly all rights reserved."
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:textAlignment="center"

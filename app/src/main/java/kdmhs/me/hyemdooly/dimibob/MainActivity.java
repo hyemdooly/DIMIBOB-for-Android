@@ -21,7 +21,6 @@ public class MainActivity extends AppCompatActivity {
         ListViewAdapter adapter = new ListViewAdapter(getApplicationContext());
 
         listView.setAdapter(adapter);
-        adapter.addItem("상단바 알림 설정", true);
         adapter.addItem("개발자의 말", false);
 
         dialog = new DeveloperSayDialog(MainActivity.this);
@@ -29,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if(position == 1){
+                if(position == 0){
                     dialog.dialogShow();
                 }
             }
