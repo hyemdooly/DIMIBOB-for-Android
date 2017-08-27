@@ -1,9 +1,7 @@
 package kdmhs.me.hyemdooly.dimibob;
 
 import android.content.Context;
-import android.widget.Toast;
 
-import java.io.IOException;
 import java.util.Map;
 
 import io.realm.Realm;
@@ -18,25 +16,12 @@ public class RealmDataController {
 
     Realm realm = Realm.getDefaultInstance();
     Context context;
-    Map<String, String> response;
-    Thread t = new Thread(new Runnable() {
-        @Override
-        public void run() {
-            try {
-                response = new HttpRequest().getRequest();
-
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-    });
 
     public RealmDataController(Context context) {
         this.context = context;
     }
 
-    public void addData(){
-        getData();
+    public void addData(Map<String, String> response){
         realm.beginTransaction();
         Meals today = new Meals();
         today.setName("Today");
@@ -53,15 +38,6 @@ public class RealmDataController {
         meal.setSnack(response.get("snack"));
 
         return meal;
-    }
-
-    public void getData(){
-        t.start();
-        try {
-            t.join();
-        } catch (InterruptedException e) {
-            Toast.makeText(context, "데이터를 저장하는데 문제가 생겼습니다!", Toast.LENGTH_LONG).show();
-        }
     }
 
 
