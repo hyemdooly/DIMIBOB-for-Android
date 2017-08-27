@@ -29,12 +29,6 @@
                 android:name="android.appwidget.provider"
                 android:resource="@xml/widget_provider" />
         </receiver>
-
-        <receiver android:name=".TimeCheckReceiver">
-            <intent-filter android:priority="9999">
-                <action android:name="android.intent.action.TIME_TICK"></action>
-            </intent-filter>
-        </receiver>
     </application>
 
 </manifest>
