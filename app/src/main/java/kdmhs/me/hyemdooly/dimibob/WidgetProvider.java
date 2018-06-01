@@ -54,7 +54,6 @@ public class WidgetProvider extends AppWidgetProvider {
         initWidget();
 
         for(int appWidgetId : appWidgetIds){
-
             RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.widget_today);
             appWidgetManager.updateAppWidget(appWidgetId, remoteViews);
             updateWidget(context, appWidgetManager, appWidgetId);
