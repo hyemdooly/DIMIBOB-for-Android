@@ -10,4 +10,5 @@ KDMHS Meals Widget Project - Android Platform
 사용 기술: Realm
 
 <img width="750" alt="스크린샷 2017-09-13 오전 9 37 17" src="https://user-images.githubusercontent.com/15646373/191774348-144dc578-0ac1-4212-a7c2-4ef2befc5a7f.png">
-![Untitled (２)](https://user-images.githubusercontent.com/15646373/191777587-b3a0724e-2a43-4c36-a849-975ef72a09fb.jpg)
+
+![Untitled](https://user-images.githubusercontent.com/15646373/191780934-b140c6b7-1fbb-4198-9b52-008e9e9dec8b.jpg)
