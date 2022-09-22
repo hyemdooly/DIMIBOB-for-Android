@@ -2,8 +2,8 @@
 KDMHS Meals Widget Project - Android Platform
 
 한국디지털미디어고등학교 급식 위젯 앱 서비스입니다.
-
-<img width="750" alt="스크린샷 2017-09-13 오전 9 37 17" src="https://user-images.githubusercontent.com/15646373/191774063-b52d8234-6260-44c5-b851-39c3230fbafd.png">
-![Screenshot_1505261237](https://user-images.githubusercontent.com/15646373/191773704-c4dfc16d-ae7a-4cbd-8313-4b85c9dd5c7a.png)
-![Screenshot_1505261243](https://user-images.githubusercontent.com/15646373/191773714-87caadad-72d1-44a9-bcbc-36270da870f6.png)
-![Screenshot_1505261247](https://user-images.githubusercontent.com/15646373/191773722-608c3b7b-14ff-4a83-bca5-6099e5b988f8.png)
+플레이 스토어에 업로드하여 학생들에게 배포했지만 API가 닫혀 지금은 배포 중이지 않습니다.
+<img width="750" alt="스크린샷 2017-09-13 오전 9 37 17" src="https://user-images.githubusercontent.com/15646373/191774348-144dc578-0ac1-4212-a7c2-4ef2befc5a7f.png">
+![Screenshot_1505261237](https://user-images.githubusercontent.com/15646373/191774391-7f239fc2-19ac-48cc-bfeb-c392f00c963a.png){: width="50" height="100"}
+![Screenshot_1505261243](https://user-images.githubusercontent.com/15646373/191774403-127e6306-1522-4c8c-8967-aedbea5fe8ab.png)
+![Screenshot_1505261247](https://user-images.githubusercontent.com/15646373/191774410-cc5b74ca-b80c-4e62-957a-3f97172f95a5.png)
